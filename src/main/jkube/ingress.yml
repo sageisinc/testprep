@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testprep-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /testprep
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /testprep
+            pathType: Prefix
+            backend:
+              service:
+                name: testprep
+                port:
+                  number: 8080
