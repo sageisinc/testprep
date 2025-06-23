@@ -108,6 +108,20 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+        <id>postgres</id>
+        <properties>
+            <dataSource.url>jdbc:postgresql://localhost:5432/sageprep</dataSource.url>
+            <dataSource.user>postgres</dataSource.user>
+            <dataSource.password>postgres</dataSource.password>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+            </dependency>
+        </dependencies>
+    </profile>
 	</profiles>
 
 	<!-- ********************************************** -->
@@ -158,6 +172,12 @@
 			<groupId>javax.transaction</groupId>
 			<artifactId>javax.transaction-api</artifactId>
 		</dependency>
+		<!-- PostgreSQL JDBC driver -->
+		<dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
 	</dependencies>
 
 	<!-- ********************************************** -->
@@ -251,8 +271,8 @@
 							<goal>install-node-and-yarn</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>v16.17.0</nodeVersion>
-							<yarnVersion>v1.22.19</yarnVersion>
+							<nodeVersion>v22.16.0</nodeVersion>
+							<yarnVersion>v1.22.2</yarnVersion>
 						</configuration>
 						<phase>generate-resources</phase>
 					</execution>
