@@ -2,7 +2,7 @@ package com.sageisinc.model.services;
 
 import com.sageisinc.model.common.exceptions.DuplicateInstanceException;
 import com.sageisinc.model.common.exceptions.InstanceNotFoundException;
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 import com.sageisinc.model.services.exceptions.IncorrectLoginException;
 import com.sageisinc.model.services.exceptions.IncorrectPasswordException;
 
@@ -17,7 +17,7 @@ public interface UserService {
 	 * @param user the user
 	 * @throws DuplicateInstanceException the duplicate instance exception
 	 */
-	void signUp(User user) throws DuplicateInstanceException;
+	void signUp(AppUser user) throws DuplicateInstanceException;
 	
 	/**
 	 * Login.
@@ -27,7 +27,7 @@ public interface UserService {
 	 * @return the user
 	 * @throws IncorrectLoginException the incorrect login exception
 	 */
-	User login(String userName, String password) throws IncorrectLoginException;
+	AppUser login(String userName, String password) throws IncorrectLoginException;
 	
 	/**
 	 * Login from id.
@@ -36,7 +36,7 @@ public interface UserService {
 	 * @return the user
 	 * @throws InstanceNotFoundException the instance not found exception
 	 */
-	User loginFromId(Long id) throws InstanceNotFoundException;
+	AppUser loginFromId(Long id) throws InstanceNotFoundException;
 	
 	/**
 	 * Update profile.
@@ -48,7 +48,7 @@ public interface UserService {
 	 * @return the user
 	 * @throws InstanceNotFoundException the instance not found exception
 	 */
-	User updateProfile(Long id, String firstName, String lastName, String email) throws InstanceNotFoundException;
+	AppUser updateProfile(Long id, String firstName, String lastName, String email) throws InstanceNotFoundException;
 	
 	/**
 	 * Change password.

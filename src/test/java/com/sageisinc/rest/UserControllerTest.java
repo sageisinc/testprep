@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.sageisinc.model.entities.User;
-import com.sageisinc.model.entities.User.RoleType;
+import com.sageisinc.model.entities.AppUser;
+import com.sageisinc.model.entities.AppUser.RoleType;
 import com.sageisinc.model.entities.UserDao;
 import com.sageisinc.model.services.exceptions.IncorrectLoginException;
 import com.sageisinc.rest.controllers.UserController;
@@ -65,7 +65,7 @@ public class UserControllerTest {
 	private AuthenticatedUserDto createAuthenticatedUser(String userName, RoleType roleType)
 			throws IncorrectLoginException {
 
-		User user = new User(userName, PASSWORD, "newUser", "user", "user@test.com");
+		AppUser user = new AppUser(userName, PASSWORD, "newUser", "user", "user@test.com");
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setRole(roleType);

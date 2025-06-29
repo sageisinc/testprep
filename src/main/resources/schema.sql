@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS "User";
 
-CREATE TABLE "User" (
+CREATE TABLE "AppUser" (
     id BIGSERIAL PRIMARY KEY,
     "userName" VARCHAR(60) NOT NULL,
     password VARCHAR(60) NOT NULL, 

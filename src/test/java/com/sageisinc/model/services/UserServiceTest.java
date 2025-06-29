@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sageisinc.model.common.exceptions.DuplicateInstanceException;
 import com.sageisinc.model.common.exceptions.InstanceNotFoundException;
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 
 /**
  * The Class UserServiceTest.
@@ -35,8 +35,8 @@ public class UserServiceTest {
 	 * @param userName the user name
 	 * @return the user
 	 */
-	private User createUser(String userName) {
-		return new User(userName, "password", "firstName", "lastName", userName + "@" + userName + ".com");
+	private AppUser createUser(String userName) {
+		return new AppUser(userName, "password", "firstName", "lastName", userName + "@" + userName + ".com");
 	}
 
 	/**
@@ -48,14 +48,14 @@ public class UserServiceTest {
 	@Test
 	public void testSignUpAndLoginFromId() throws DuplicateInstanceException, InstanceNotFoundException {
 
-		User user = createUser("user");
+		AppUser user = createUser("user");
 
 		userService.signUp(user);
 
-		User loggedInUser = userService.loginFromId(user.getId());
+		AppUser loggedInUser = userService.loginFromId(user.getId());
 
 		assertEquals(user, loggedInUser);
-		assertEquals(User.RoleType.USER, user.getRole());
+		assertEquals(AppUser.RoleType.USER, user.getRole());
 
 	}
 }

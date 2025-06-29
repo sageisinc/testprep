@@ -1,6 +1,6 @@
 package com.sageisinc.rest.dtos;
 
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 
 /**
  * The Class UserConversor.
@@ -19,7 +19,7 @@ public class UserConversor {
 	 * @param user the user
 	 * @return the user dto
 	 */
-	public static final UserDto toUserDto(User user) {
+	public static final UserDto toUserDto(AppUser user) {
 		return new UserDto(user.getId(), user.getUserName(), user.getFirstName(), user.getLastName(), user.getEmail(),
 				user.getRole().toString());
 	}
@@ -30,9 +30,9 @@ public class UserConversor {
 	 * @param userDto the user dto
 	 * @return the user
 	 */
-	public static final User toUser(UserDto userDto) {
+	public static final AppUser toUser(UserDto userDto) {
 
-		return new User(userDto.getUserName(), userDto.getPassword(), userDto.getFirstName(), userDto.getLastName(),
+		return new AppUser(userDto.getUserName(), userDto.getPassword(), userDto.getFirstName(), userDto.getLastName(),
 				userDto.getEmail());
 	}
 
@@ -43,7 +43,7 @@ public class UserConversor {
 	 * @param user         the user
 	 * @return the authenticated user dto
 	 */
-	public static final AuthenticatedUserDto toAuthenticatedUserDto(String serviceToken, User user) {
+	public static final AuthenticatedUserDto toAuthenticatedUserDto(String serviceToken, AppUser user) {
 
 		return new AuthenticatedUserDto(serviceToken, toUserDto(user));
 

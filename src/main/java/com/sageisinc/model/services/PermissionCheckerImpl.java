@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sageisinc.model.common.exceptions.InstanceNotFoundException;
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 import com.sageisinc.model.entities.UserDao;
 
 /**
@@ -37,9 +37,9 @@ public class PermissionCheckerImpl implements PermissionChecker {
 	}
 
 	@Override
-	public User checkUser(Long userId) throws InstanceNotFoundException {
+	public AppUser checkUser(Long userId) throws InstanceNotFoundException {
 
-		Optional<User> user = userDao.findById(userId);
+		Optional<AppUser> user = userDao.findById(userId);
 		
 		if (!user.isPresent()) {
 			throw new InstanceNotFoundException("project.entities.user", userId);

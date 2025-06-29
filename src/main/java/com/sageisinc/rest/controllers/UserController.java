@@ -26,7 +26,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.sageisinc.model.common.exceptions.DuplicateInstanceException;
 import com.sageisinc.model.common.exceptions.InstanceNotFoundException;
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 import com.sageisinc.model.services.exceptions.IncorrectLoginException;
 import com.sageisinc.model.services.exceptions.IncorrectPasswordException;
 import com.sageisinc.model.services.exceptions.PermissionException;
@@ -114,7 +114,7 @@ public class UserController {
 			@Validated({ UserDto.AllValidations.class }) @RequestBody UserDto userDto)
 			throws DuplicateInstanceException {
 
-		User user = toUser(userDto);
+		AppUser user = toUser(userDto);
 
 		userService.signUp(user);
 
@@ -135,7 +135,7 @@ public class UserController {
 	@PostMapping("/login")
 	public AuthenticatedUserDto login(@Validated @RequestBody LoginParamsDto params) throws IncorrectLoginException {
 
-		User user = userService.login(params.getUserName(), params.getPassword());
+		AppUser user = userService.login(params.getUserName(), params.getPassword());
 
 		return toAuthenticatedUserDto(generateServiceToken(user), user);
 
@@ -153,7 +153,7 @@ public class UserController {
 	public AuthenticatedUserDto loginFromServiceToken(@RequestAttribute Long userId,
 			@RequestAttribute String serviceToken) throws InstanceNotFoundException {
 
-		User user = userService.loginFromId(userId);
+		AppUser user = userService.loginFromId(userId);
 
 		return toAuthenticatedUserDto(serviceToken, user);
 
@@ -213,7 +213,7 @@ public class UserController {
 	 * @param user the user
 	 * @return the string
 	 */
-	private String generateServiceToken(User user) {
+	private String generateServiceToken(AppUser user) {
 
 		JwtInfo jwtInfo = new JwtInfo(user.getId(), user.getUserName(), user.getRole().toString());
 

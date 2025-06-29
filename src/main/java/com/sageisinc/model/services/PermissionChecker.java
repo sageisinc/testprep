@@ -1,7 +1,7 @@
 package com.sageisinc.model.services;
 
 import com.sageisinc.model.common.exceptions.InstanceNotFoundException;
-import com.sageisinc.model.entities.User;
+import com.sageisinc.model.entities.AppUser;
 
 /**
  * The Interface PermissionChecker.
@@ -23,6 +23,6 @@ public interface PermissionChecker {
 	 * @return the user
 	 * @throws InstanceNotFoundException the instance not found exception
 	 */
-	public User checkUser(Long userId) throws InstanceNotFoundException;
+	public AppUser checkUser(Long userId) throws InstanceNotFoundException;
 	
 }

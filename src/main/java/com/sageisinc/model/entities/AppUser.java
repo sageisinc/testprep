@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * The Class User.
  */
 @Entity
-public class User {
+public class AppUser {
 
 	/**
 	 * The Enum RoleType.
@@ -43,7 +43,7 @@ public class User {
 	/**
 	 * Instantiates a new user.
 	 */
-	public User() {
+	public AppUser() {
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class User {
 	 * @param lastName  the last name
 	 * @param email     the email
 	 */
-	public User(String userName, String password, String firstName, String lastName, String email) {
+	public AppUser(String userName, String password, String firstName, String lastName, String email) {
 
 		this.userName = userName;
 		this.password = password;
