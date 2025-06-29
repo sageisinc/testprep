@@ -111,7 +111,7 @@
 		<profile>
         <id>postgres</id>
         <properties>
-            <dataSource.url>jdbc:postgresql://localhost:5432/sageprep</dataSource.url>
+            <dataSource.url>jdbc:postgresql://localhost:4432/sageprep</dataSource.url>
             <dataSource.user>postgres</dataSource.user>
             <dataSource.password>postgres</dataSource.password>
         </properties>
@@ -178,6 +178,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.7.3</version>
         </dependency>
+		<!-- <dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.5.2.Final</version>
+		</dependency> -->
 	</dependencies>
 
 	<!-- ********************************************** -->
